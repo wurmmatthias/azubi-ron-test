@@ -1,0 +1,177 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+    .steckbrief {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.steckbrief img {
+    width: 210px;
+    height: 210px;
+    /* border-radius: 50%;*/
+    margin-bottom: 20px;
+    overflow: auto;
+    background: #ffffff url("./files/images/formula-1-logo.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+/*.info {
+    text-align: left;
+}
+.info p {
+    margin: 5px 0;
+    color: #666;
+}
+*/
+
+table {
+    font-family: arial, sans-serif;
+    font-size: 16px;
+    border-collapse: collapse;
+    width: 100%;
+    color: #666;
+    line-height: 25px;
+    text-align: left;
+    border:1px solid #333;
+  }
+
+  table td{
+    border:1px solid #333;
+}
+/* im Center wird die zweite Spalte aligned */
+  table td:nth-child(2) {
+    text-align: center;
+}
+
+
+/* 
+Folgende Links helften
+https://stackoverflow.com/questions/9913293/change-text-on-hover-then-return-to-the-previous-text 
+https://codepen.io/Jintos/pen/jOVaOZ
+*/
+.wohnortbutton{
+    width: auto; 
+    display: inline-block;
+    position: relative;
+    margin: -32px;
+    padding: 0.67em;
+    border: hidden;
+    overflow: hidden;
+    text-decoration: none;
+    font-size: 16px;
+    outline: none;
+    color: #666;
+    background: transparent;
+    font-family: Arial, sans-serif;
+}
+
+.wohnortbutton span{
+    -webkit-transition: 0.6s;
+    -moz-transition: 0.6s;
+    -o-transition: 0.6s;
+    transition: 0.6s;
+    -webkit-transition-delay: 0.2s;
+    -moz-transition-delay: 0.2s;
+    -o-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+}
+
+.wohnortbutton:before,
+.wohnortbutton:after {
+    content: '';
+    position: absolute;
+    top: 0.67em;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    -webkit-transition: .4s,opacity .6s;
+    -moz-transition: .4s,opacity .6s;
+    -o-transition: .4s,opacity .6s;
+    transition: .4s,opacity .6s;
+}
+
+/* :before */
+
+.wohnortbutton:before {
+    content: attr(data-hover);
+    -webkit-transform: translate(-150%,0);
+    -moz-transform: translate(-150%,0);
+    -ms-transform: translate(-150%,0);
+    -o-transform: translate(-150%,0);
+    transform: translate(-150%,0);
+}
+
+/* :after */
+
+.wohnortbutton:after {
+    content: attr(data-active);
+    -webkit-transform: translate(150%,0);
+    -moz-transform: translate(150%,0);
+    -ms-transform: translate(150%,0);
+    -o-transform: translate(150%,0);
+    transform: translate(150%,0);
+}
+
+/* Span on :hover and :active */
+
+.wohnortbutton:hover span,
+.wohnortbutton:active span {
+    opacity: 0;
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    -ms-transform: scale(0.3);
+    -o-transform: scale(0.3);
+    transform: scale(0.3);
+}
+
+/*  
+    We show :before pseudo-element on :hover 
+    and :after pseudo-element on :active 
+*/
+
+.wohnortbutton:hover:before,
+.wohnortbutton:active:after {
+    opacity: 1;
+    -webkit-transform: translate(0,0);
+    -moz-transform: translate(0,0);
+    -ms-transform: translate(0,0);
+    -o-transform: translate(0,0);
+    transform: translate(0,0);
+    -webkit-transition-delay: .4s;
+    -moz-transition-delay: .4s;
+    -o-transition-delay: .4s;
+    transition-delay: .4s;
+}
+
+/* 
+  We hide :before pseudo-element on :active
+*/
+
+.wohnortbutton:active:before {
+    -webkit-transform: translate(-150%,0);
+    -moz-transform: translate(-150%,0);
+    -ms-transform: translate(-150%,0);
+    -o-transform: translate(-150%,0);
+    transform: translate(-150%,0);
+    -webkit-transition-delay: 0s;
+    -moz-transition-delay: 0s;
+    -o-transition-delay: 0s;
+    transition-delay: 0s;
+}
