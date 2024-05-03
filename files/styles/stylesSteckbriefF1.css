@@ -22,8 +22,8 @@ h1 {
     align-items: center;
 }
 .steckbrief img {
-    width: 210px;
-    height: 210px;
+    width: 150px;
+    height: 150px;
     /* border-radius: 50%;*/
     margin-bottom: 20px;
     overflow: auto;
@@ -31,6 +31,7 @@ h1 {
     background-size: cover;
     background-position: center;
 }
+
 /*.info {
     text-align: left;
 }
@@ -58,6 +59,8 @@ table {
   table td:nth-child(2) {
     text-align: center;
 }
+
+
 
 
 /* 
@@ -179,4 +182,23 @@ https://codepen.io/Jintos/pen/jOVaOZ
 .returnHome {
     text-align: center;
     color: #333;
+}
+
+
+.calendar{
+    text-align: center;
+}
+.calendar > iframe{
+    width: 600px;
+    height: 750px;
+}
+
+
+.container2 {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
