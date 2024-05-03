@@ -27,7 +27,7 @@ h1 {
     /* border-radius: 50%;*/
     margin-bottom: 20px;
     overflow: auto;
-    background: #ffffff url("/files/images/formula-1-logo.png") no-repeat;
+    background: #ffffff url("/azubi-ron-test/files/images/formula-1-logo.png") no-repeat;
     background-size: cover;
     background-position: center;
 }
