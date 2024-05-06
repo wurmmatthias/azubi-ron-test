@@ -72,7 +72,12 @@
         <div class="returnHome">
             <a href="./index.html">Zurück zur Übersicht</a>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/2.0.7/ical.min.js"></script>
+        <script type="module">
+            import ICAL from "https://unpkg.com/ical.js";
+            document.querySelector("button").addEventListener("click", () => {
+              ICAL.parse(document.getElementById("txt").value);
+            });
+          </script>
         <script src="./files/javascript/F1-calendar-fetch.js">
         </script>
 
