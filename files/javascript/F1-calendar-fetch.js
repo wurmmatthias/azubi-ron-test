@@ -3,11 +3,6 @@
 // Or include it via CDN
 
 
-import ICAL from "https://unpkg.com/ical.js";
-            document.querySelector("button").addEventListener("click", () => {
-              ICAL.parse(document.getElementById("txt").value);
-            });
-
 // Define the URL of the .ics file
 const icsUrl = 'https://calendar.google.com/calendar/ical/ekqk1nbdusr1baon1ic42oeeik%40group.calendar.google.com/public/basic.ics';
 
