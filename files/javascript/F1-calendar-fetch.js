@@ -44,6 +44,11 @@ async function parseIcsFile(url) {
 parseIcsFile(icsUrl).then(({ lastEvent, nextEvent }) => {
   document.getElementById("lastRace").innerHTML = lastEvent;
   document.getElementById("nextRace").innerHTML = nextEvent;
-}).catch(error => {
-  console.error("Error fetching or parsing .ics file:", error);
 });
+
+
+/*.catch(error => {
+  console.error("Error fetching or parsing .ics file:", error);
+  document.getElementById("lastRace").innerHTML = "Fehler beim Abruf";
+  document.getElementById("nextRace").innerHTML = "Fehler beim Abruf";
+});*/

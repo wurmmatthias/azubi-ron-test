@@ -77,9 +77,57 @@
             document.querySelector("button").addEventListener("click", () => {
               ICAL.parse(document.getElementById("txt").value);
             });
+
+            // Define the URL of the .ics file
+            const icsUrl = 'https://calendar.google.com/calendar/ical/dd4aa2c7c275bb2d837a5a2257000ea86a181868aa5f82bbef0947fb56cfa907%40group.calendar.google.com/public/basic.ics';
+            // F!: https://calendar.google.com/calendar/ical/ekqk1nbdusr1baon1ic42oeeik%40group.calendar.google.com/public/basic.ics
+
+            // Function to fetch the .ics file
+            async function fetchIcsFile(url) {
+            const response = await fetch(url);
+            const data = await response.text();
+            return data;
+            }
+
+            // Function to parse the .ics file and extract last and next events
+            async function parseIcsFile(url) {
+            const icalData = await fetchIcsFile(url);
+            const jcalData = ICAL.parse(icalData);
+            const comp = new ICAL.Component(jcalData);
+            const vevents = comp.getAllProperties('vevent');
+            const now = new Date();
+
+            let lastEvent = null;
+            let nextEvent = null;
+
+            for (const vevent of vevents) {
+                const event = new ICAL.Event(vevent);
+                const startDate = event.startDate.toJSDate();
+
+                if (startDate < now && (!lastEvent || startDate > lastEvent.startDate)) {
+                lastEvent = event;
+                }
+
+                if (startDate > now && (!nextEvent || startDate < nextEvent.startDate)) {
+                nextEvent = event;
+                }
+            }
+
+            return { lastEvent, nextEvent, now, vevents };
+            }
+
+            // Usage example
+            parseIcsFile(icsUrl).then(({ lastEvent, nextEvent, now, vevents }) => {
+            document.getElementById("lastRace").innerHTML = vevents;
+            document.getElementById("nextRace").innerHTML = nextEvent;
+            }).catch(error => {
+            console.error("Error fetching or parsing .ics file:", error);
+            document.getElementById("lastRace").innerHTML = "Fehler beim Abruf";
+            document.getElementById("nextRace").innerHTML = "Fehler beim Abruf";
+            });;
           </script>
-        <script src="./files/javascript/F1-calendar-fetch.js">
-        </script>
+        <!--<script src="./files/javascript/F1-calendar-fetch.js">
+        </script>-->
 
     </body>
 </html>
