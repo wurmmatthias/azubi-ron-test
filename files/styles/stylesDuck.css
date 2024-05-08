@@ -1,4 +1,34 @@
 body {
     font-family: Arial, sans-serif;
-    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.enteimage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.enteimage img{
+    max-width: 600px;
+}
+
+.returnHome {
+    text-align: center;
+    color: #333;
+}
+
