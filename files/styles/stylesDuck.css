@@ -38,3 +38,9 @@ h1 {
     color: #333;
 }
 
+.neueente button{
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+}
